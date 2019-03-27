@@ -9,7 +9,7 @@ with open('README.md') as f:
 
 setup(
     name='tensorboardinklab',
-    version='0.0.0.2.23-debug',
+    version='0.1-beta',
     # cmdclass=versioneer.get_cmdclass(),
     author='Yiran Tao',
     author_email='yt2487@columbia.edu',
