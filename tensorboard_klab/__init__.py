@@ -139,19 +139,16 @@ def start(args_string):
   parsed_args = shlex.split(args_string, comments=True, posix=True)
   
   parsed_args = shlex.split(args_string, comments=True, posix=True)
-  tb_url = parsed_args[-1]
   
-  print('tb_url', tb_url)
+  tb_url = parsed_args[-1]
   
   service_url = tb_url
   
   parsed_args.pop()
-  print('parsed_args', parsed_args)
   
   start_result = manager.start(parsed_args)
 
   if isinstance(start_result, manager.StartLaunched):
-    print('is instance 1')
     _display(
         service_url=service_url,
         port=start_result.info.port,
@@ -160,7 +157,6 @@ def start(args_string):
     )
 
   elif isinstance(start_result, manager.StartReused):
-    print('is instance 2')
     template = (
         "Reusing TensorBoard on port {port} (pid {pid}), started {delta} ago. "
         "(Use '!kill {pid}' to kill it.)"
@@ -198,7 +194,6 @@ def start(args_string):
     print_or_update(message)
 
   elif isinstance(start_result, manager.StartTimedOut):
-    print('is instance 4')
     message = (
         "ERROR: Timed out waiting for TensorBoard to start. "
         "It may still be running as pid %d."
